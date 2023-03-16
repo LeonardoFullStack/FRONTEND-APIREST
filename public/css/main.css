@@ -1,0 +1,57 @@
+* {
+    margin: 0px;
+    text-align: center;
+    font-family: monospace;
+    color: rgb(49, 37, 2);
+    background-color: aliceblue;
+}
+
+body {
+    position: relative;
+    min-height: 600px;
+
+}
+
+header {
+    background-color: rgb(130, 122, 174);
+    height:160px;
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; 
+}
+
+nav > ul > li {
+    display:inline-block;
+    margin: 10px;
+    margin-left: 20px;
+}
+
+footer {
+    margin-top: 100px;
+    background-color: rgb(130, 122, 174);
+    height: 100px;
+    width: 100%;
+}
+
+h2 {
+    text-align: left;
+}
+
+.right {
+    font-size: 1.25em;
+    font-weight:bolder;
+    text-align: right;
+}
+
+.servicios {
+    border: 1px solid black;
+    margin:10px;
+}
+
+#login {
+    width: 190px
+}
+
+.center {
+    text-align: center;
+}

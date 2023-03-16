@@ -1,0 +1,17 @@
+<%- include('./templates/header.ejs') %>
+<%- include('nav.ejs') %>
+
+<main>
+    <h1><%= titulo%></h1>
+    <p><%= msg%></p>
+    </main>
+    
+    <form method="POST" action="/comprobar/">
+        <input type="text" name="email" placeholder="Email"><br>
+        <input type="text" name="pass" placeholder="Password"><br>
+        <button type="submit">
+            entrar
+        </button>
+    </form>
+
+<%- include('./templates/footer.ejs') %>
