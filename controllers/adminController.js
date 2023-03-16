@@ -9,7 +9,7 @@ const mostrarAdmin = (req, res) => {
   console.log('holi')
   res.render('admin/index', {
     titulo: 'Práctica node',
-    msg: 'Mensaje Admin'
+    msg: 'Has accedido como administrador'
   })
 }
 

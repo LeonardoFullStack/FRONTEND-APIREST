@@ -14,14 +14,15 @@ body {
 
 header {
     background-color: rgb(130, 122, 174);
-    height:160px;
+    height: 160px;
     display: flex;
-    align-items: center; /* Centra verticalmente */
-    justify-content: center; 
+    align-items: center;
+    /* Centra verticalmente */
+    justify-content: center;
 }
 
-nav > ul > li {
-    display:inline-block;
+nav>ul>li {
+    display: inline-block;
     margin: 10px;
     margin-left: 20px;
 }
@@ -39,13 +40,13 @@ h2 {
 
 .right {
     font-size: 1.25em;
-    font-weight:bolder;
+    font-weight: bolder;
     text-align: right;
 }
 
 .servicios {
     border: 1px solid black;
-    margin:10px;
+    margin: 10px;
 }
 
 #login {
@@ -54,4 +55,47 @@ h2 {
 
 .center {
     text-align: center;
+}
+
+button {
+    border-radius: 25px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+input,
+textarea {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #034c03;
+    margin: 20px;
+}
+
+.logonodeentrada {
+    width: 140px;
+    height: 83px;
+}
+
+li>a {
+    font-size: larger;
+    font-weight: bolder;
+    font-size: 16px;
+    transition: all 0.2s ease-in-out;
+
+
+}
+
+
+li>a:hover {
+    font-size: 18px;
+    text-shadow: 0 0 5px #c4a0d8;
 }
