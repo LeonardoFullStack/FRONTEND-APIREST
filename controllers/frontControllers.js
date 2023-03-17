@@ -4,6 +4,7 @@ const path = require('path')
 
 
 const getIndex = (req, res) => {
+  req.header.authorization = ''
   res.render('index', {
     titulo: 'Práctica node',
     msg: 'Haz login para comenzar'
