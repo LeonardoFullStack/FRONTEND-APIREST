@@ -1,12 +1,9 @@
 const { consulta, consulta2 } = require('../helpers/fetch')
-/* const express = require('expres')
-const bodyParser = require('body-parser')
-
-app.use(bodyParser.json()); */
+const jwt  = require('jsonwebtoken')
 
 
 const mostrarAdmin = (req, res) => {
-  console.log('holi')
+  
   res.render('admin/index', {
     titulo: 'Práctica node',
     msg: 'Has accedido como administrador'
@@ -75,14 +72,12 @@ const editar = async (req, res) => {
 
 const put = async (req, res) => {
 
-  console.log(req.body)
   const id = req.params.id
   const respuesta = await consulta2(id, 'put', req.body)
   if (respuesta.ok) {
 
     respuesta.data.fecha = ajustarFecha(respuesta.data.fecha)
 
-    console.log(respuesta)
     res.render('admin/servicios', {
       titulo: 'Editado',
       msg: 'Servicio editado',
@@ -132,16 +127,21 @@ const ajustarFecha = (fecha) => {
 }
 
 const validar = (req, res, next) => {
-  console.log('yes?')
-  if (req.header.authorization == 'entrada') {
-    next();
-  } else {
+
+  try {
+    const payload =jwt.verify(req.header.xtoken, 'esta es la frasecilla')
+
+  } catch (error) {
     res.render('error', {
-      error: '401',
+      error: error,
       msg: 'No tienes permisos'
     })
   }
+next();
+
 }
+
+
 
 
 

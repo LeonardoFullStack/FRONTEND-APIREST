@@ -4,7 +4,6 @@ const path = require('path')
 
 
 const getIndex = (req, res) => {
-  req.header.authorization = ''
   res.render('index', {
     titulo: 'Práctica node',
     msg: 'Haz login para comenzar'
@@ -14,18 +13,24 @@ const getIndex = (req, res) => {
 const getServicios = async (req, res) => {
   const respuesta = await consulta2('', '', '')
 
+  if (respuesta.ok) {
+    respuesta.data.forEach(element => {
+      element.fecha = ajustarFecha(element.fecha)
+    });
+  
+  
+    res.render('servicios', {
+      titulo: 'Servicios',
+      msg: 'Servicios disponibles:',
+      data: respuesta.data
+    })
+  } else{
+    res.render('error', {
+      error: 'Error',
+      msg: 'Fallo al obtener los servicios'
+    })
+  }
 
-  console.log(respuesta.data);
-  respuesta.data.forEach(element => {
-    element.fecha = ajustarFecha(element.fecha)
-  });
-
-
-  res.render('servicios', {
-    titulo: 'Servicios',
-    msg: 'Servicios disponibles:',
-    data: respuesta.data
-  })
 };
 
 const mostrarUnServicio = async (req, res) => {
@@ -43,7 +48,7 @@ const mostrarUnServicio = async (req, res) => {
 
   } else {
     res.render('error', {
-      titulo: 'Error',
+      error: 'Error',
       msg: 'Fallo al obtener el servicio'
     })
   }
@@ -53,6 +58,7 @@ const mostrarUnServicio = async (req, res) => {
 
 
 const login = (req, res) => {
+
   res.render('login', {
     titulo: 'Práctica node',
     msg: 'Haz login para comenzar'
@@ -60,12 +66,15 @@ const login = (req, res) => {
 }
 
 const comprobar = async (req, res) => {
-  req.header.authorization = ''
 
   const respuesta = await logUser(req.body);
 
   if (respuesta.ok) {
+    const token = respuesta.token 
     req.header.authorization = 'entrada'
+    req.body.id = respuesta.user._id;
+    req.body.name = respuesta.user.nombre
+    req.header.xtoken = token 
 
     res.redirect(`/admin`)
   } else {
