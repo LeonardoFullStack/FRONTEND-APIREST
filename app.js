@@ -1,13 +1,17 @@
 const express = require('express')
 const app = express()
+const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser');
-const port = 4004
+require('dotenv').config()
+const port = process.env.PORT || 4000
 /* const {validar} = require('./controllers/frontControllers') */
 
 
 //establecer templates 
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
+
+app.use(cookieParser());
 
 
 

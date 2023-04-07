@@ -1,9 +1,10 @@
 const { consulta, consulta2 } = require('../helpers/fetch')
-const jwt  = require('jsonwebtoken')
+const jwt = require('jsonwebtoken')
+const cookieParser = require('cookie-parser')
 
 
 const mostrarAdmin = (req, res) => {
-  
+
   res.render('admin/index', {
     titulo: 'Práctica node',
     msg: 'Has accedido como administrador'
@@ -33,7 +34,7 @@ const mostrarUnServicio = async (req, res) => {
 
   respuesta.data.fecha = ajustarFecha(respuesta.data.fecha)
 
-  console.log(respuesta)
+ 
 
 
   res.render('admin/uno', {
@@ -62,7 +63,7 @@ const eliminar = async (req, res) => {
 const editar = async (req, res) => {
   const id = req.params.id
   const respuesta = await consulta2(id)
-  console.log(respuesta.data.servicio)
+  
   res.render('admin/editar', {
     titulo: 'Editar',
     msg: 'Editar servicio',
@@ -100,20 +101,30 @@ const crear = (req, res) => {
 }
 
 const post = async (req, res) => {
+  const { descripcion, servicio } = req.body
 
-  const respuesta = await consulta2('', 'post', req.body)
-  if (respuesta.ok) {
-    respuesta.data.fecha = ajustarFecha(respuesta.data.fecha)
-    res.render('admin/servicios', {
-      titulo: 'Servicios',
-      msg: 'Servicio creado',
-      data: respuesta
-    })
-  } else {
+  
+  if (descripcion.length == 0 || servicio.length == 0) {
     res.render('error', {
       error: 'ERROR',
-      msg: 'Fallo al crear el servicio'
+      msg: 'Rellena los dos campos'
     })
+  } else {
+
+    const respuesta = await consulta2('', 'post', req.body)
+    if (respuesta.ok) {
+      respuesta.data.fecha = ajustarFecha(respuesta.data.fecha)
+      res.render('admin/servicios', {
+        titulo: 'Servicios',
+        msg: 'Servicio creado',
+        data: respuesta
+      })
+    } else {
+      res.render('error', {
+        error: 'ERROR',
+        msg: 'Fallo al crear el servicio'
+      })
+    }
   }
 
 }
@@ -128,8 +139,10 @@ const ajustarFecha = (fecha) => {
 
 const validar = (req, res, next) => {
 
+  const {xtoken} = req.cookies
+
   try {
-    const payload =jwt.verify(req.header.xtoken, 'esta es la frasecilla')
+    const payload = jwt.verify(xtoken, 'esta es la frasecilla')
 
   } catch (error) {
     res.render('error', {
@@ -137,11 +150,17 @@ const validar = (req, res, next) => {
       msg: 'No tienes permisos'
     })
   }
-next();
+  next();
 
 }
 
-
+const logout = (req,res) => {
+  res.clearCookie('xtoken')
+  res.render('index', {
+    titulo:'Sesión cerrada',
+    msg:'Sesión cerrada con éxito'
+  })
+}
 
 
 
@@ -157,5 +176,6 @@ module.exports = {
   crear,
   post,
   ajustarFecha,
-  validar
+  validar,
+  logout
 }

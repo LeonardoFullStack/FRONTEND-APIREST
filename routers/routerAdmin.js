@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
-const {mostrarAdmin, mostrarServicios, mostrarUnServicio, eliminar, editar, put, crear, post, validar} = require('../controllers/adminController')
+const {mostrarAdmin,logout, mostrarServicios, mostrarUnServicio, eliminar, editar, put, crear, post, validar} = require('../controllers/adminController')
 
 
 router.use(bodyParser.json());
@@ -15,6 +15,7 @@ router.get('/uno/:id', mostrarUnServicio)
 router.get('/edit/:id', editar)
 router.get('/crear/', crear)
 router.get('/eliminar/:id', eliminar)
+router.get('/logout', logout)
 
 router.post('/post/', post)
 router.post('/put/:id', put)

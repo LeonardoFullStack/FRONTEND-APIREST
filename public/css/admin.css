@@ -6,6 +6,11 @@
     background-color: aliceblue;
 }
 
+.imgFront {
+    width:239px;
+    height:216px;
+}
+
 body {
     position: relative;
     min-height: 600px;

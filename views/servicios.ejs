@@ -8,7 +8,7 @@
     <% data.forEach(element => { %>
         <div class="servicios">
            <h2><%= element.servicio %></h2> <p class="right"><%= element.fecha %></p>
-           <p><%= element.descripcion %></p>
+           <p class="description"><%= element.descripcion %></p>
    
            <a href="uno/<%= element._id %>">
                <button id="<%= element._id %>">

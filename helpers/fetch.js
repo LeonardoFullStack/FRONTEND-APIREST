@@ -26,8 +26,7 @@ const consulta2 = async (url, method, body) => {
     }
     const peticion = await fetch(`${urlBase}/${url}`,options);
      const respuesta = await peticion.json()
-     console.log('respuesta del fetch')
-     console.log(respuesta)
+     
      return respuesta
      
 }

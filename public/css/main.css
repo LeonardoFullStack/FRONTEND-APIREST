@@ -23,8 +23,8 @@ header {
 
 nav>ul>li {
     display: inline-block;
-    margin: 10px;
-    margin-left: 20px;
+    margin: 5px;
+    margin-left: 5px;
 }
 
 footer {
@@ -36,6 +36,10 @@ footer {
 
 h2 {
     text-align: left;
+}
+
+.center {
+    text-align: center;
 }
 
 .right {
@@ -99,3 +103,35 @@ li>a:hover {
     font-size: 18px;
     text-shadow: 0 0 5px #c4a0d8;
 }
+
+
+/* Definición del estilo de la tabla */
+.table-intercalada {
+    width: 90%; /* Ancho de la tabla al 100% */
+    border-collapse: collapse; /* Colapso de los bordes de la tabla */
+    margin: 0 auto;
+    
+  }
+
+  
+  /* Estilo de las celdas impares */
+  .table-intercalada tr:nth-child(odd) td {
+    background-color: #f2f2f2; /* Color de fondo para las celdas impares */
+    margin-bottom: 5px;
+  }
+  
+  /* Estilo de las celdas pares */
+  .table-intercalada tr:nth-child(even) td {
+    background-color: #e6e6e6; /* Color de fondo para las celdas pares */
+    margin-bottom: 5px;
+  }
+  
+  /* Estilo para las celdas de encabezado */
+  .table-intercalada th {
+    background-color: #ddd; /* Color de fondo para las celdas de encabezado */
+    padding: 8px; /* Espaciado interno de las celdas de encabezado */
+    text-align: left; /* Alineación del texto en las celdas de encabezado */
+    font-weight: bold; /* Negrita para el texto en las celdas de encabezado */
+    border: 1px solid #ccc; /* Borde de las celdas de encabezado */
+  }
+  

@@ -1,6 +1,8 @@
 const { consulta2, logUser } = require('../helpers/fetch')
 const { ajustarFecha } = require('./adminController')
 const path = require('path')
+const {webScraping} = require('../helpers/scrapping')
+const cookieParser = require('cookie-parser')
 
 
 const getIndex = (req, res) => {
@@ -68,13 +70,16 @@ const login = (req, res) => {
 const comprobar = async (req, res) => {
 
   const respuesta = await logUser(req.body);
+ 
 
   if (respuesta.ok) {
     const token = respuesta.token 
+    
     req.header.authorization = 'entrada'
     req.body.id = respuesta.user._id;
     req.body.name = respuesta.user.nombre
-    req.header.xtoken = token 
+    res.cookie('xtoken', token)
+    
 
     res.redirect(`/admin`)
   } else {
@@ -87,6 +92,23 @@ const comprobar = async (req, res) => {
 
 }
 
+const getStaticPage = (req,res) => {
+  res.render('staticServices', {
+    titulo:'Servicios estáticos',
+    msg:'Aquí los servicios estáticos'
+  })
+}
+
+const getDinamicPage =async  (req,res) => {
+  const scrapping = await webScraping()
+
+  res.render('dinamic', {
+    title:'Servicios  dinámicos',
+    msg:'Los servicios de esta página por scrapping',
+    scrapping
+  })
+}
+
 
 
 
@@ -96,5 +118,7 @@ module.exports = {
   mostrarUnServicio,
   login,
   comprobar,
+  getStaticPage,
+  getDinamicPage
 
 }
