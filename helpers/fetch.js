@@ -2,6 +2,7 @@ const urlBase = 'https://api-proyecto-975q.onrender.com/api/v1'
 const fetch = require('node-fetch')
 //http://localhost:4001/api/v1
 //https://api-proyecto-975q.onrender.com/api/v1
+//proof
 
 
 const consulta2 = async (url, method, body) => {
