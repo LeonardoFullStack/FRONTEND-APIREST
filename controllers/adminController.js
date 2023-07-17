@@ -12,7 +12,7 @@ const mostrarAdmin = (req, res) => {
 }
 
 const mostrarServicios = async (req, res) => {
-  const respuesta = await consulta2('', '', '')
+  const respuesta = await consulta2('servicios', '', '')
 
 
 
@@ -111,7 +111,7 @@ const post = async (req, res) => {
     })
   } else {
 
-    const respuesta = await consulta2('', 'post', req.body)
+    const respuesta = await consulta2('servicios', 'post', req.body)
     if (respuesta.ok) {
       respuesta.data.fecha = ajustarFecha(respuesta.data.fecha)
       res.render('admin/servicios', {
