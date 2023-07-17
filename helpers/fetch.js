@@ -1,5 +1,5 @@
 const urlBase = 'https://api-proyecto-975q.onrender.com/api/v1'
-const {fetch} = 'node-fetch'
+const fetch = 'node-fetch'
 //http://localhost:4001/api/v1
 //https://api-proyecto-975q.onrender.com/api/v1
 
