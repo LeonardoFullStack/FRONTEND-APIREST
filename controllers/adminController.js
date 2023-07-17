@@ -14,8 +14,6 @@ const mostrarAdmin = (req, res) => {
 const mostrarServicios = async (req, res) => {
   const respuesta = await consulta2('servicios', '', '')
 
-
-
   respuesta.data.forEach(element => {
     element.fecha = ajustarFecha(element.fecha)
   });
@@ -30,7 +28,7 @@ const mostrarServicios = async (req, res) => {
 
 const mostrarUnServicio = async (req, res) => {
   const id = req.params.id
-  const respuesta = await consulta2(id, '', '')
+  const respuesta = await consulta2(`servicios/${id}`, '', '')
 
   respuesta.data.fecha = ajustarFecha(respuesta.data.fecha)
 
@@ -62,7 +60,7 @@ const eliminar = async (req, res) => {
 
 const editar = async (req, res) => {
   const id = req.params.id
-  const respuesta = await consulta2(id)
+  const respuesta = await consulta2(`servicios/${id}`)
   
   res.render('admin/editar', {
     titulo: 'Editar',

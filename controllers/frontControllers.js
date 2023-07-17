@@ -13,7 +13,7 @@ const getIndex = (req, res) => {
 };
 
 const getServicios = async (req, res) => {
-  const respuesta = await consulta2('', '', '')
+  const respuesta = await consulta2('servicios', '', '')
 
   if (respuesta.ok) {
     respuesta.data.forEach(element => {

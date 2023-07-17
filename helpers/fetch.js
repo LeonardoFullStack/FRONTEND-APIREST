@@ -1,6 +1,6 @@
 const urlBase = 'http://localhost:4001/api/v1'
-//http://localhost:4001
-//https://api-proyecto-975q.onrender.com/api/v1/servicios
+//http://localhost:4001/api/v1
+//https://api-proyecto-975q.onrender.com/api/v1
 
 
 const consulta2 = async (url, method, body) => {
