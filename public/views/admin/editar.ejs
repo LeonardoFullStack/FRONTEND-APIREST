@@ -1,0 +1,20 @@
+<%- include('./templates/header.ejs') %>
+<%- include('nav.ejs') %>
+
+<main>
+    <h1><%= titulo%></h1>
+    <p><%= msg%></p>
+    </main>
+
+    <section>
+        <form method="POST" action="/admin/put/<%= data._id %>">
+            <input type="text" id="titulo" value="<%= data.servicio %>" name="servicio"><br>
+            <textarea cols="30" rows="15" id="descripcion" name="descripcion">
+                <%= data.descripcion %>
+            </textarea><br>
+            <button type="submit">editar</button>
+        </form>
+    </section>
+
+
+<%- include('./templates/footer.ejs') %>

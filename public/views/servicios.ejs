@@ -1,0 +1,25 @@
+
+<%- include('./templates/header.ejs') %>
+<%- include('nav.ejs') %>
+
+<main>
+    <h1><%= titulo%></h1>
+    <p><%= msg%></p>
+    <% data.forEach(element => { %>
+        <div class="servicios">
+           <h2><%= element.servicio %></h2> <p class="right"><%= element.fecha %></p>
+           <p class="description"><%= element.descripcion %></p>
+   
+           <a href="uno/<%= element._id %>">
+               <button id="<%= element._id %>">
+                   Leer más
+               </button>
+           </a>
+           
+   
+        </div>
+       <% }) %>
+    </main>
+    
+
+<%- include('./templates/footer.ejs') %>

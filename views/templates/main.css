@@ -1,0 +1,137 @@
+* {
+    margin: 0px;
+    text-align: center;
+    font-family: monospace;
+    color: rgb(49, 37, 2);
+    background-color: aliceblue;
+}
+
+body {
+    position: relative;
+    min-height: 600px;
+
+}
+
+header {
+    background-color: rgb(130, 122, 174);
+    height: 160px;
+    display: flex;
+    align-items: center;
+    /* Centra verticalmente */
+    justify-content: center;
+}
+
+nav>ul>li {
+    display: inline-block;
+    margin: 5px;
+    margin-left: 5px;
+}
+
+footer {
+    margin-top: 100px;
+    background-color: rgb(130, 122, 174);
+    height: 100px;
+    width: 100%;
+}
+
+h2 {
+    text-align: left;
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    font-size: 1.25em;
+    font-weight: bolder;
+    text-align: right;
+}
+
+.servicios {
+    border: 1px solid black;
+    margin: 10px;
+}
+
+#login {
+    width: 190px
+}
+
+.center {
+    text-align: center;
+}
+
+button {
+    border-radius: 25px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+input,
+textarea {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #034c03;
+    margin: 20px;
+}
+
+.logonodeentrada {
+    width: 140px;
+    height: 83px;
+}
+
+li>a {
+    font-size: larger;
+    font-weight: bolder;
+    font-size: 16px;
+    transition: all 0.2s ease-in-out;
+
+
+}
+
+
+li>a:hover {
+    font-size: 18px;
+    text-shadow: 0 0 5px #c4a0d8;
+}
+
+
+/* Definición del estilo de la tabla */
+.table-intercalada {
+    width: 90%; /* Ancho de la tabla al 100% */
+    border-collapse: collapse; /* Colapso de los bordes de la tabla */
+    margin: 0 auto;
+    
+  }
+
+  
+  /* Estilo de las celdas impares */
+  .table-intercalada tr:nth-child(odd) td {
+    background-color: #f2f2f2; /* Color de fondo para las celdas impares */
+    margin-bottom: 5px;
+  }
+  
+  /* Estilo de las celdas pares */
+  .table-intercalada tr:nth-child(even) td {
+    background-color: #e6e6e6; /* Color de fondo para las celdas pares */
+    margin-bottom: 5px;
+  }
+  
+  /* Estilo para las celdas de encabezado */
+  .table-intercalada th {
+    background-color: #ddd; /* Color de fondo para las celdas de encabezado */
+    padding: 8px; /* Espaciado interno de las celdas de encabezado */
+    text-align: left; /* Alineación del texto en las celdas de encabezado */
+    font-weight: bold; /* Negrita para el texto en las celdas de encabezado */
+    border: 1px solid #ccc; /* Borde de las celdas de encabezado */
+  }
+  
